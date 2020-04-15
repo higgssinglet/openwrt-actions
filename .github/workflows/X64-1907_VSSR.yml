@@ -30,7 +30,20 @@ jobs:
           sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
+
+# Third Party Products Section based on Vediotalk
           
+    - name: 自定义插件主题。
+        run: |
+          cd package
+          mkdir openwrt-packages
+          cd openwrt-packages
+          git clone https://github.com/jerrykuku/lua-maxminddb.git  #git lua-maxminddb 依赖
+          git clone https://github.com/jerrykuku/luci-app-vssr.git   #Hello World
+
+# End Third Party
+
+
     - name: Clone source code
       env: 
         REPO_URL: https://github.com/Lienol/openwrt
